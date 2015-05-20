@@ -1,0 +1,9 @@
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\bin\Debug\SortVisualiser.exe.config
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\bin\Debug\SortVisualiser.exe
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\bin\Debug\SortVisualiser.pdb
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.csprojResolveAssemblyReference.cache
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.Form1.resources
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.Properties.Resources.resources
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.csproj.GenerateResource.Cache
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.exe
+c:\users\slvai_000\documents\visual studio 2013\Projects\SortVisualiser\SortVisualiser\obj\Debug\SortVisualiser.pdb
