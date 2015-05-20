@@ -20,6 +20,7 @@ namespace SortVisualiser
         protected int indexOfCompared2;
 
         protected int usedMemory;
+        private int maxUsedMemory;
         protected int compares;
         protected int moves;
 
@@ -135,6 +136,14 @@ namespace SortVisualiser
             updateCurrStateList();
         }
 
+        private void trackMaxMemory()
+        {
+            if (usedMemory > maxUsedMemory)
+            {
+                maxUsedMemory = usedMemory;
+            }
+        }
+
         private void markSorted()
         {
             for (int a = 0; a < numbers.Count; a++)
@@ -180,7 +189,8 @@ namespace SortVisualiser
             movesBox.Text = moves.ToString();
             movesBox.Refresh();
 
-            usedMemoryBox.Text = usedMemory.ToString();
+            trackMaxMemory();
+            usedMemoryBox.Text = maxUsedMemory.ToString();
             usedMemoryBox.Refresh();
 
             comparesBox.Text = compares.ToString();
@@ -229,6 +239,7 @@ namespace SortVisualiser
         }
         protected void inputData(String newInputNumbers)
         {
+            maxUsedMemory = 0;
             swapUsed = false;
             usedMemory = 0;
             compares = 0;
