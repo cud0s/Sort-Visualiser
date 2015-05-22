@@ -9,32 +9,43 @@ namespace SortVisualiser
 {
     abstract class Sort
     {
-        private bool weighedTime;
+        protected bool weighedTime;
         private bool swapUsed = false;
         protected List<int> markList = new List<int>();
         protected List<int> sortedList = new List<int>();
         protected List<int> currentState = new List<int>();
-        protected List<int> numbers = new List<int>();
+        public List<int> numbers{
+            get;
+            set;
+        }
 
         protected int indexOfCompared;
         protected int indexOfCompared2;
 
         protected int usedMemory;
         private int maxUsedMemory;
-        protected int compares;
-        protected int moves;
+        public int compares
+        {
+            get;
+            set;
+        }
+        public int moves
+        {
+            get;
+            set;
+        }
 
         private int oldMoves;
         private int oldCompares;
 
-        protected int inputLength;
-        private Chart chart;
-        private RichTextBox textBox;
-        private RichTextBox movesBox;
-        private RichTextBox comparesBox;
-        private RichTextBox bigOBox;
-        private RichTextBox inputLengthBox;
-        private RichTextBox usedMemoryBox;
+        private int inputLength;
+        protected Chart chart;
+        protected RichTextBox textBox;
+        protected RichTextBox movesBox;
+        protected RichTextBox comparesBox;
+        protected RichTextBox bigOBox;
+        protected RichTextBox inputLengthBox;
+        protected RichTextBox usedMemoryBox;
         public static int sleepTime
         {
             get;
@@ -83,7 +94,6 @@ namespace SortVisualiser
 
         protected void textMarkCompared()
         {
-
             for (int a = 0; a < numbers.Count; a++)
             {
                 textBox.SelectionStart = a;
@@ -157,8 +167,13 @@ namespace SortVisualiser
             }
         }
 
+        /**
+         * Draws chart using numbers from numbers[] array. If number index is in sortedList, the point will be 
+         * coloured accordingly. Same with markList[] and indexOfCompared, indexOfCompared2
+         * */
         void drawChart()
         {
+            chart.Series["series1"].Color = chartDefaultColor;
             chart.Series["series1"].Points.Clear();
             for (int a = 0; a < numbers.Count; a++)
             {
@@ -183,7 +198,7 @@ namespace SortVisualiser
         }
 
         protected void update()
-        {
+        { 
             drawChart();
             markSorted();
             movesBox.Text = moves.ToString();
@@ -239,6 +254,7 @@ namespace SortVisualiser
         }
         protected void inputData(String newInputNumbers)
         {
+            indexOfCompared = indexOfCompared2 = -1;
             maxUsedMemory = 0;
             swapUsed = false;
             usedMemory = 0;
@@ -249,7 +265,6 @@ namespace SortVisualiser
             numbers.Clear();
             textBox.Clear();
 
-            chart.Series["series1"].Color = chartDefaultColor;
             foreach (char a in inputNumbers)
             {
                 int newInt = (int)a - '0';
@@ -258,13 +273,12 @@ namespace SortVisualiser
                     numbers.Add(newInt);
                 }
                 textBox.AppendText(Convert.ToString(a));
-                chart.Series["series1"].Points.AddY(a);
                 textBox.Refresh();
-                chart.Refresh();
             }
             inputLength = numbers.Count;
             inputLengthBox.Text = inputLength.ToString();
             inputLengthBox.Refresh();
+            drawChart();
 
             updateCurrStateList();
         }
@@ -339,17 +353,17 @@ namespace SortVisualiser
             return answer;
         }
 
-        public Sort(RichTextBox newTextBox, RichTextBox newMovesBox, RichTextBox newComparesBox, RichTextBox newInputLength, RichTextBox newBigO, RichTextBox newUsedMemory, Chart newChart, Boolean newWeighedTime)
+        public Sort(RichTextBox newTextBox, RichTextBox newMovesBox, RichTextBox newComparesBox, RichTextBox newInputLengthBox, RichTextBox newBigOBox, RichTextBox newUsedMemoryBox, Chart newChart, Boolean newWeighedTime)
         {
+            numbers = new List<int>();
             weighedTime = newWeighedTime;
             chart = newChart;
-            usedMemoryBox = newUsedMemory;
-            inputLengthBox = newInputLength;
-            bigOBox = newBigO;
+            usedMemoryBox = newUsedMemoryBox;
+            inputLengthBox = newInputLengthBox;
+            bigOBox = newBigOBox;
             textBox = newTextBox;
             movesBox = newMovesBox;
             comparesBox = newComparesBox;
-            sleepTime = 700;
         }
     }
 }

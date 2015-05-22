@@ -52,8 +52,6 @@ namespace SortVisualiser
             textMarkFromList();            
         }
 
-
-
         public InsertionSort(RichTextBox a, RichTextBox b, RichTextBox c, RichTextBox d, RichTextBox e, RichTextBox f, Chart g, bool h)
             : base(a, b, c, d, e, f, g, h)
         {

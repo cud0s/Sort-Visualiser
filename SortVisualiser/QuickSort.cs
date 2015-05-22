@@ -28,7 +28,7 @@ namespace SortVisualiser
             for (int a = from; a < to; a++)
             {
                 logComparison(a, to);
-                if (numbers[a] <= numbers[to])
+                if (numbers[a] < numbers[to])
                 {
                     swapAndMark(storeIndex, a);
                     storeIndex++;

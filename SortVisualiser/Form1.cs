@@ -57,6 +57,7 @@ namespace SortVisualiser
             listBox.Items.Add(new InsertionSort(richTextBox2, richTextBox4, richTextBox3, richTextBox5, richTextBox6, richTextBox7, chart1, checkBox1.Checked));
             listBox.Items.Add(new SelectionSort(richTextBox2, richTextBox4, richTextBox3, richTextBox5, richTextBox6, richTextBox7, chart1, checkBox1.Checked));
             listBox.Items.Add(new QuickSort(richTextBox2, richTextBox4, richTextBox3, richTextBox5, richTextBox6, richTextBox7, chart1, checkBox1.Checked));
+            listBox.Items.Add(new ShellSort(richTextBox2, richTextBox4, richTextBox3, richTextBox5, richTextBox6, richTextBox7, chart1, checkBox1.Checked));
 
 
             ToolTip toolTip1 = new ToolTip();
